@@ -1,0 +1,23 @@
+﻿  GameFunctions.cpp
+C:\Users\dr.emmanuelrekeraho\source\repos\Project1\Project1\header.h(18,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'GameFunctions.cpp')
+  
+C:\Users\dr.emmanuelrekeraho\source\repos\Project1\Project1\AlienArmy.h(38,12): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'GameFunctions.cpp')
+  
+  Pixie.cpp
+C:\Users\dr.emmanuelrekeraho\source\repos\Project1\Project1\header.h(18,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Pixie.cpp')
+  
+C:\Users\dr.emmanuelrekeraho\source\repos\Project1\Project1\AlienArmy.h(38,12): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Pixie.cpp')
+  
+  main.cpp
+C:\Users\dr.emmanuelrekeraho\source\repos\Project1\Project1\header.h(18,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'main.cpp')
+  
+C:\Users\dr.emmanuelrekeraho\source\repos\Project1\Project1\AlienArmy.h(38,12): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'main.cpp')
+  
+  Generating Code...
+  Project1.vcxproj -> C:\Users\dr.emmanuelrekeraho\source\repos\Project1\Debug\Project1.exe
