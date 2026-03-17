@@ -4,7 +4,6 @@ A space shooter game where you defend Earth from waves of alien invaders. Pilot 
 
 ## Play
 
-Open `index.html` in a browser, or deploy to [Vercel](https://vercel.com) for hosting.
 
 ### Controls
 
@@ -25,11 +24,6 @@ Open `index.html` in a browser, or deploy to [Vercel](https://vercel.com) for ho
 - **Particle effects**, screen shake, and animated starfield background
 - **Mobile touch controls**
 
-## Deploy to Vercel
-
-1. Push this repo to GitHub
-2. Import the repo at [vercel.com/new](https://vercel.com/new)
-3. Deploy — no build step required (static files)
 
 ## Legacy
 
