@@ -13,10 +13,34 @@ int Pixie::myID = nextPixieID++;
 // Pixie constructor
 // param filename, x direction, y direction, and pixie type
 Pixie::Pixie(const string& filename, float x, float y, int type)
+	: mySprite(myTexture)
 {
 	setTextureSourceFile(filename);
 	pixieType = type;
-	mySprite.setPosition(x, y);
+	mySprite.setPosition({x, y});
+}
+// Copy constructor: copies texture and rebinds sprite to the new texture
+Pixie::Pixie(const Pixie& other)
+	: myTexture(other.myTexture), mySprite(myTexture),
+	  nextPixie(other.nextPixie), previousPixie(other.previousPixie),
+	  pixieType(other.pixieType)
+{
+	mySprite.setPosition(other.mySprite.getPosition());
+	mySprite.setScale(other.mySprite.getScale());
+}
+// Copy assignment operator
+Pixie& Pixie::operator=(const Pixie& other)
+{
+	if (this != &other) {
+		myTexture = other.myTexture;
+		mySprite.setTexture(myTexture);
+		mySprite.setPosition(other.mySprite.getPosition());
+		mySprite.setScale(other.mySprite.getScale());
+		nextPixie = other.nextPixie;
+		previousPixie = other.previousPixie;
+		pixieType = other.pixieType;
+	}
+	return *this;
 }
 // Function draws pixies on window
 // param window
@@ -29,21 +53,21 @@ void Pixie::draw(RenderWindow& window) {
 // param y direction
 // return none
 void Pixie::move(float x, float y) {
-	mySprite.move(x, y);
+	mySprite.move({x, y});
 }
 // function used to set scale of the background pixie
 // param x dimension
 // param y dimension
 // return none
 void Pixie::setScale(float xScale, float yScale) {
-	mySprite.setScale(xScale, yScale);
+	mySprite.setScale({xScale, yScale});
 }
 // Function sets pixies on window in x and Y directions
 // param x coordinate
 // param y coordinate
 // return none
 void Pixie::setPosition(float x, float y) {
-	mySprite.setPosition(x, y);
+	mySprite.setPosition({x, y});
 }
 //Function sets the type of pixie 
 // param type of pixie
@@ -55,13 +79,13 @@ void Pixie::setType(int type) {
 // param x coordinate
 // return none
 void Pixie::SetX(float x) {
-	mySprite.setPosition(x, getY());
+	mySprite.setPosition({x, getY()});
 }
 // Function that sets the Y position of the pixie
 // param y coordinate 
 // return none
 void Pixie::setY(float y) {
-	mySprite.setPosition(getX(), y);
+	mySprite.setPosition({getX(), y});
 }
 // Function that sets the texture of the pixie
 // param filename
@@ -79,6 +103,7 @@ void Pixie::setTextureSourceFile(string filename)
 // param none
 // return none
 Pixie::Pixie()
+	: mySprite(myTexture)
 {
 	nextPixie = nullptr;
 	previousPixie = nullptr;

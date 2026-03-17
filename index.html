@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Alien Attack</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-wrapper">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div id="hud-left">
+        <div id="score-display">SCORE <span id="score-value">0</span></div>
+        <div id="highscore-display">HI <span id="highscore-value">0</span></div>
+      </div>
+      <div id="hud-center">
+        <div id="level-display">LEVEL <span id="level-value">1</span></div>
+      </div>
+      <div id="hud-right">
+        <div id="hearts-display"></div>
+        <div id="powerup-indicator"></div>
+      </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div id="menu-overlay" class="overlay">
+      <div class="overlay-content">
+        <h1 class="game-title">ALIEN<br>ATTACK</h1>
+        <p class="subtitle">Defend Earth from the alien invasion</p>
+        <div class="menu-buttons">
+          <button id="btn-start" class="btn btn-primary">START GAME</button>
+          <button id="btn-controls" class="btn btn-secondary">CONTROLS</button>
+        </div>
+        <div id="menu-highscore" class="menu-stat">HIGH SCORE: <span id="menu-hs-value">0</span></div>
+      </div>
+    </div>
+
+    <!-- Controls Info -->
+    <div id="controls-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>CONTROLS</h2>
+        <div class="controls-grid">
+          <div class="control-item"><kbd>&larr;</kbd><kbd>&rarr;</kbd><span>Move Ship</span></div>
+          <div class="control-item"><kbd>SPACE</kbd><span>Fire Missile</span></div>
+          <div class="control-item"><kbd>P</kbd><span>Pause</span></div>
+        </div>
+        <div class="powerup-legend">
+          <h3>POWER-UPS</h3>
+          <div class="legend-item"><span class="pu-icon shield">S</span> Shield</div>
+          <div class="legend-item"><span class="pu-icon rapid">R</span> Rapid Fire</div>
+          <div class="legend-item"><span class="pu-icon triple">T</span> Triple Shot</div>
+          <div class="legend-item"><span class="pu-icon life">+</span> Extra Life</div>
+        </div>
+        <button id="btn-back" class="btn btn-secondary">BACK</button>
+      </div>
+    </div>
+
+    <!-- Pause -->
+    <div id="pause-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>PAUSED</h2>
+        <button id="btn-resume" class="btn btn-primary">RESUME</button>
+        <button id="btn-quit" class="btn btn-secondary">QUIT TO MENU</button>
+      </div>
+    </div>
+
+    <!-- Level Complete -->
+    <div id="level-complete-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2 id="level-complete-title">LEVEL COMPLETE</h2>
+        <div class="level-stats">
+          <div class="stat-row"><span>Aliens Destroyed</span><span id="lc-aliens">0</span></div>
+          <div class="stat-row"><span>Accuracy</span><span id="lc-accuracy">0%</span></div>
+          <div class="stat-row"><span>Time Bonus</span><span id="lc-time-bonus">0</span></div>
+          <div class="stat-row total"><span>Level Score</span><span id="lc-score">0</span></div>
+        </div>
+        <button id="btn-next-level" class="btn btn-primary">NEXT LEVEL</button>
+      </div>
+    </div>
+
+    <!-- Game Over -->
+    <div id="gameover-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2 class="gameover-title">GAME OVER</h2>
+        <div class="gameover-stats">
+          <div class="stat-row"><span>Final Score</span><span id="go-score">0</span></div>
+          <div class="stat-row"><span>Level Reached</span><span id="go-level">1</span></div>
+          <div class="stat-row"><span>Aliens Destroyed</span><span id="go-aliens">0</span></div>
+          <div id="new-highscore" class="hidden">NEW HIGH SCORE!</div>
+        </div>
+        <button id="btn-restart" class="btn btn-primary">PLAY AGAIN</button>
+        <button id="btn-menu" class="btn btn-secondary">MAIN MENU</button>
+      </div>
+    </div>
+
+    <!-- Victory -->
+    <div id="victory-overlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h2 class="victory-title">VICTORY!</h2>
+        <p class="subtitle">You saved Earth from the alien invasion!</p>
+        <div class="gameover-stats">
+          <div class="stat-row"><span>Final Score</span><span id="v-score">0</span></div>
+          <div class="stat-row"><span>Total Aliens</span><span id="v-aliens">0</span></div>
+        </div>
+        <button id="btn-victory-restart" class="btn btn-primary">PLAY AGAIN</button>
+        <button id="btn-victory-menu" class="btn btn-secondary">MAIN MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

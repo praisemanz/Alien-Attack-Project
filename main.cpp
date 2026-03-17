@@ -11,7 +11,7 @@ int main()
 {
 	// Create the window for graphics. 
 	//  The "aliens" is the text in the title bar on the window. 
-	RenderWindow window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "aliens!");
+	RenderWindow window(VideoMode(Vector2u(WINDOW_WIDTH, WINDOW_HEIGHT)), "aliens!");
 
 	// Limit the framerate to 60 frames per second
 	window.setFramerateLimit(60);
@@ -42,17 +42,13 @@ int main()
 	{
 		// check all the window's events that were triggered since the last iteration of the loop
 		// For now, we just need this so we can click on the window and close it
-		Event event;
-
-		// This while loop checks to see if anything happened since last time
-		// we drew the window and all its graphics. 
-		while (window.pollEvent(event))
+		while (const auto event = window.pollEvent())
 		{
-			if (event.type == Event::Closed) // Did the user kill the window by pressing the "X"?
+			if (event->is<Event::Closed>())
 				window.close();
-			else if (event.type == Event::KeyPressed) // did the user press a key on the keyboard?
+			else if (const auto* keyPressed = event->getIf<Event::KeyPressed>())
 			{
-				if (event.key.code == Keyboard::Space && !isShipMissileInFlight)// if user presses space, shoot missile
+				if (keyPressed->code == Keyboard::Key::Space && !isShipMissileInFlight)
 				{
 
 					isShipMissileInFlight = true;

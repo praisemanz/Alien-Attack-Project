@@ -18,6 +18,8 @@ class Pixie
 public:
 	Pixie(); // Default constructor for initializing a new instance of Pixie.
 	Pixie(const string& filename, float x, float y, int type);//  constructor for creating a Pixie with an image, initial position, and type.
+	Pixie(const Pixie& other); // Copy constructor
+	Pixie& operator=(const Pixie& other); // Copy assignment operator
 	void draw(RenderWindow& window);// Draws the Pixie's sprite on window.
 	void move(float x, float y); // Moves the Pixie's sprite in x and y directions.
 	void setScale(float xScale, float yScale);  // Sets the scale of the Pixie's sprite in x and y dimensions.
@@ -36,8 +38,8 @@ public:
 	Pixie* getNext() const { return nextPixie; } // Returns a pointer to the next Pixie 
 	Pixie* getPrevious() const { return previousPixie; }  // Returns a pointer to the previous Pixie 
 	Pixie* getSelfPointer() { return this; } // Returns a pointer to this Pixie 
-	float getXGlobalBounds() { return mySprite.getGlobalBounds().width; } // Returns the width of the global bounds of the sprite.
-	float  getYGlobalBounds() { return mySprite.getGlobalBounds().height; } // Returns the height of the global bounds of the sprite.
+	float getXGlobalBounds() { return mySprite.getGlobalBounds().size.x; } // Returns the width of the global bounds of the sprite.
+	float  getYGlobalBounds() { return mySprite.getGlobalBounds().size.y; } // Returns the height of the global bounds of the sprite.
 	FloatRect getGlobalBounds() { return mySprite.getGlobalBounds(); } // Returns the global bounds of the sprite.
 
 	// setters
@@ -50,7 +52,7 @@ public:
 
 private:
 	Texture myTexture;// sets SFML texture
-	Sprite mySprite;// SFML sprite object
+	Sprite mySprite{myTexture};// SFML sprite object
 	Pixie* nextPixie = nullptr;// points to the next pixie 
 	Pixie* previousPixie = nullptr;//  points to previous pixie
 	static int nextPixieID;// default 0; adds in the pixe.cpp

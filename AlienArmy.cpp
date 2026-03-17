@@ -64,7 +64,7 @@ void AlienArmy::shootAliens(Pixie& missile)
     auto i = aliens.begin();
     while (i != aliens.end() && !aliens.empty())
     {
-        if (i->getGlobalBounds().intersects(missile.getGlobalBounds()))
+        if (i->getGlobalBounds().findIntersection(missile.getGlobalBounds()).has_value())
         {
             aliens.erase(i); // remove alien hit by missile
             cout << "hit!" << endl;
@@ -103,7 +103,7 @@ void AlienArmy::checkCollisions(RenderWindow& window, Pixie& ship)
 {
     for (auto i = missiles.begin(); i != missiles.end();)
     {
-        if (ship.getGlobalBounds().intersects(i->getGlobalBounds())) {
+        if (ship.getGlobalBounds().findIntersection(i->getGlobalBounds()).has_value()) {
             cout << "Ship Shot" << endl;// if collision occurs, display message and pause game
             shipLives--;
             this_thread::sleep_for(chrono::seconds(2)); // pause after hit for 2 seconds

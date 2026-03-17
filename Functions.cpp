@@ -16,7 +16,7 @@ Description: This is the shipFunctions.cpp file for Programming II Alien Attack 
 void moveShip(Pixie& ship)
 {
 	 // Leftwards movement
-	if (Keyboard::isKeyPressed(Keyboard::Left))
+	if (Keyboard::isKeyPressed(Keyboard::Key::Left))
 	{
 		float positionX = ship.getX();// gets X position of ship
 		// Check if the ship has reached the left boundary
@@ -26,7 +26,7 @@ void moveShip(Pixie& ship)
 		}
 	}
 	// Rightwards movement
-	else if (Keyboard::isKeyPressed(Keyboard::Right))
+	else if (Keyboard::isKeyPressed(Keyboard::Key::Right))
 	{
 		float positionX = ship.getX(); // gets X position of ship
 		float shipWidth = ship.getXGlobalBounds();

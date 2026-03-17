@@ -1,2 +1,18 @@
 /heart.bmp
 /hearts.h
+
+# C++ build artifacts
+Debug/
+Release/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
+*.tlog
+.vs/
+AlienAttack
+
+# OS
+.DS_Store
+Thumbs.db
