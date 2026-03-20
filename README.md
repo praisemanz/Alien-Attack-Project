@@ -1,4 +1,4 @@
-# Alien Attack
+# Alien Attack: now available on Vercel
 
 A space shooter game where you defend Earth from waves of alien invaders. Pilot your ship, dodge enemy fire, collect power-ups, and fight through 10 increasingly difficult levels.
 
